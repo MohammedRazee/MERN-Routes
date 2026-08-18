@@ -4,7 +4,7 @@ A simple project to assist in learning rounting and query searching in Express
 
 Use command:
 
-```terminal
+```bash
     git clone https://github.com/MohammedRazee/MERN-Routes.git
 ```
 
