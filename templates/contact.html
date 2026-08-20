@@ -3,9 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>MERN Routes | Contact</title>
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-    <h1>This is the Contact Us Page</h1>
+    <header class="site-header">
+        <div class="brand">MERN Routes</div>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/about">About</a>
+            <a href="/contact">Contact</a>
+        </nav>
+    </header>
+
+    <main class="page">
+        <section class="hero">
+            <h1>This is the Contact Us Page</h1>
+            <p>
+                Got a question about this demo? This form is just for show —
+                there's no route wired up to handle its submission yet. It's
+                here as a starting point for practicing form handling with
+                Express.
+            </p>
+        </section>
+
+        <section class="card">
+            <h2>Send a Message</h2>
+            <form class="contact-form">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" placeholder="Your name">
+
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="you@example.com">
+
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="5" placeholder="Your message..."></textarea>
+
+                <input type="submit" value="Send">
+            </form>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>Built for learning Express &amp; Node routing.</p>
+    </footer>
 </body>
 </html>

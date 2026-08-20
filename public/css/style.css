@@ -1,0 +1,149 @@
+/* ---------- Reset & base ---------- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    color: #222;
+    background-color: #f7f7fb;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+a {
+    color: #2f6fed;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+code {
+    background: #eef0f6;
+    padding: 0.1em 0.4em;
+    border-radius: 4px;
+    font-size: 0.9em;
+}
+
+/* ---------- Header & nav ---------- */
+.site-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    background-color: #1f2740;
+    color: #fff;
+}
+
+.site-header .brand {
+    font-weight: bold;
+    font-size: 1.25rem;
+}
+
+.site-header nav a {
+    color: #dfe4ff;
+    margin-left: 1.5rem;
+    font-weight: 500;
+}
+
+.site-header nav a:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+
+/* ---------- Main content ---------- */
+.page {
+    flex: 1;
+    max-width: 800px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.hero h1 {
+    margin-bottom: 0.75rem;
+    color: #1f2740;
+}
+
+.hero p {
+    margin-bottom: 1.5rem;
+}
+
+.card {
+    background: #fff;
+    border: 1px solid #e2e4ee;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.card h2 {
+    margin-bottom: 0.75rem;
+    color: #1f2740;
+}
+
+.feature-list {
+    list-style: disc;
+    padding-left: 1.5rem;
+}
+
+.feature-list li {
+    margin-bottom: 0.4rem;
+}
+
+/* ---------- Forms ---------- */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    max-width: 400px;
+}
+
+form label {
+    font-weight: 600;
+    margin-top: 0.5rem;
+}
+
+form input[type="text"],
+form input[type="email"],
+form textarea {
+    padding: 0.5rem 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font: inherit;
+}
+
+form textarea {
+    resize: vertical;
+}
+
+form input[type="submit"] {
+    margin-top: 0.75rem;
+    padding: 0.6rem 1rem;
+    border: none;
+    border-radius: 4px;
+    background-color: #2f6fed;
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+    align-self: flex-start;
+}
+
+form input[type="submit"]:hover {
+    background-color: #2559c7;
+}
+
+/* ---------- Footer ---------- */
+.site-footer {
+    text-align: center;
+    padding: 1rem;
+    font-size: 0.85rem;
+    color: #666;
+}

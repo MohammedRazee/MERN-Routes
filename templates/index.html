@@ -3,17 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>MERN Routes | Home</title>
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-    <h1>This is the Home Page</h1>
-    <a href="/about"><h3>About Us Page</h3></a>
-    <a href="/contact"><h3>Contact Us Page</h3></a>
+    <header class="site-header">
+        <div class="brand">MERN Routes</div>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/about">About</a>
+            <a href="/contact">Contact</a>
+        </nav>
+    </header>
 
-    <br>
-    <form action="/search" method="GET">
-        <input type="text" name="genre">
-        <input type="submit" value="Submit">
-    </form>
+    <main class="page">
+        <section class="hero">
+            <h1>This is the Home Page</h1>
+            <p>
+                This little site exists to demonstrate the basics of
+                <strong>routing</strong> and <strong>query string handling</strong>
+                in Express. Each link in the nav bar above hits a different
+                route defined in <code>index.js</code>.
+            </p>
+        </section>
+
+        <section class="card">
+            <h2>Search the Movie Catalog</h2>
+            <p>
+                Enter a genre below (try <em>Sci-Fi</em>, <em>Tragedy</em>,
+                <em>Crime</em>, or <em>Romance</em>) to see how a GET request
+                with a query string is handled on the server.
+            </p>
+            <form action="/search" method="GET" class="search-form">
+                <label for="genre">Genre</label>
+                <input type="text" id="genre" name="genre" placeholder="e.g. Sci-Fi">
+                <input type="submit" value="Search">
+            </form>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>Built for learning Express &amp; Node routing.</p>
+    </footer>
 </body>
 </html>

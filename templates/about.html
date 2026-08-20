@@ -3,9 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>MERN Routes | About</title>
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-    <h1>This is the About Us Page</h1>
+    <header class="site-header">
+        <div class="brand">MERN Routes</div>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/about">About</a>
+            <a href="/contact">Contact</a>
+        </nav>
+    </header>
+
+    <main class="page">
+        <section class="hero">
+            <h1>This is the About Us Page</h1>
+            <p>
+                This project is a teaching example built to walk through core
+                Express concepts: defining routes with <code>app.get()</code>,
+                serving static HTML with <code>res.sendFile()</code>, and
+                reading query parameters from incoming requests.
+            </p>
+        </section>
+
+        <section class="card">
+            <h2>What's Under the Hood</h2>
+            <ul class="feature-list">
+                <li>Three simple routes: <code>/</code>, <code>/about</code>, and <code>/contact</code></li>
+                <li>A <code>/search</code> route that filters an in-memory list of movies by genre</li>
+                <li>Plain HTML templates served straight from the <code>templates/</code> folder</li>
+                <li>Shared styling served from the <code>public/</code> folder</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>Built for learning Express &amp; Node routing.</p>
+    </footer>
 </body>
 </html>
