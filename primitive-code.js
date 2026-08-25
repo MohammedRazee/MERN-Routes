@@ -22,17 +22,6 @@ const server = createServer((req, res) => {
             res.writeHead(200, {"Content-Type": "text/html"})
             res.end(data)
         })
-    } else if (req.url == "/css/style.css") {
-        readFile(path.join(__dirname, "public/css/style.css"), (err, data) => {
-            if (err) {
-                console.log(err)
-                res.writeHead(400, { "Content-Type" : "text/html "})
-                res.end("<h1>File not Found</h1>")
-                return;
-            }
-            res.writeHead(200, {"Content-Type": "text/css"})
-            res.end(data)
-        })
     } else {
         res.writeHead(404, {"Content-Type": "text/html"})
         res.end("<h1>File not Found</h1>")
