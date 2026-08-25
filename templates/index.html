@@ -11,6 +11,7 @@
         <div class="brand">MERN Routes</div>
         <nav>
             <a href="/">Home</a>
+            <a href="/newmovie">Add a Movie</a>
             <a href="/about">About</a>
             <a href="/contact">Contact</a>
         </nav>
@@ -34,8 +35,7 @@
                 <em>Crime</em>, or <em>Romance</em>) to see how a GET request
                 with a query string is handled on the server.
             </p>
-            <form action="/search" method="POST" class="search-form">
-                <input type="text" id="genre" name="title" >
+            <form action="/search" method="GET" class="search-form">
                 <input type="text" id="genre" name="genre" >
                 <input type="submit" value="Search">
             </form>

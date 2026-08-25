@@ -2,7 +2,7 @@ import express from "express"
 import path from "path"
 
 const app = express()
-const port = 3001
+const port = 3000
 const __dirname = import.meta.dirname
 
 app.use(express.static("public"))
@@ -63,26 +63,26 @@ function searchMovie(req, res) {
 app.get("/", (req, res) => {
     res.sendFile(path.join(__dirname, "templates/index.html"))
 })
-
-
     
-app.get("/about", (err, request, res, next) => {
-    if(err) {
-        res.send("<h1>404 error: Page not found</h1>");
-        return;
-    }
-        res.sendFile(path.join(__dirname, "templates/about.html"))
+app.get("/about", (req, res) => {
+    res.sendFile(path.join(__dirname, "templates/about.html"))
 })
 
-// app.get("/search", handleQuery, searchMovie)
+app.get("/newmovie", (req, res) => {
+    res.sendFile(path.join(__dirname, "templates/newmovie.html"))
+})
 
-app.post("/search", (req, res) => {
+app.get("/search", handleQuery, searchMovie)
+
+app.post("/addmovie", (req, res) => {
     const { title, genre } = req.body
     const index = movies.length - 1
     const newId = movies[index].id
 
     movies.push({ id: newId + 1, title, genre })
+    let html = `<p>The movie ${title} of the genre ${genre} has been added to the movies list</p>`
     console.log(movies)
+    res.send(html)
 })
     
 app.get("/contact", (req, res) => {
