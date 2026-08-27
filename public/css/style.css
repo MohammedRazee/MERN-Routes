@@ -147,3 +147,11 @@ form input[type="submit"]:hover {
     font-size: 0.85rem;
     color: #666;
 }
+
+/* ---------- PUT / DELETE results ---------- */
+
+#update-result,
+#delete-result {
+    margin-top: 1rem;
+    font-weight: 600;
+}

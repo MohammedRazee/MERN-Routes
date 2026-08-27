@@ -6,6 +6,8 @@ const port = 3000
 const __dirname = import.meta.dirname
 
 app.use(express.static("public"))
+app.use(express.urlencoded({ extended : true}))
+app.use(express.json())
 
 const movies = [
     // Sci-Fi
@@ -71,11 +73,15 @@ app.get("/newmovie", (req, res) => {
     res.sendFile(path.join(__dirname, "templates/newmovie.html"))
 })
 
-app.get("/search", handleQuery, searchMovie)
-    
 app.get("/contact", (req, res) => {
     res.sendFile(path.join(__dirname, "templates/contact.html"))
 })
+app.get("/search", handleQuery, searchMovie)
+    
+// Add the code below this line.
+
+
+
 
 app.listen(port, (req, res) => {
     console.log(`Listening on http://localhost:${port}`)

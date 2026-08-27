@@ -1,49 +1,261 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>MERN Routes | Home</title>
+
     <link rel="stylesheet" href="/css/style.css">
 </head>
+
 <body>
+
     <header class="site-header">
-        <div class="brand">MERN Routes</div>
+
+        <div class="brand">
+            MERN Routes
+        </div>
+
         <nav>
             <a href="/">Home</a>
             <a href="/newmovie">Add a Movie</a>
             <a href="/about">About</a>
             <a href="/contact">Contact</a>
         </nav>
+
     </header>
 
+
     <main class="page">
+
+        <!-- HOME -->
         <section class="hero">
+
             <h1>This is the Home Page</h1>
+
             <p>
                 This little site exists to demonstrate the basics of
-                <strong>routing</strong> and <strong>query string handling</strong>
-                in Express. Each link in the nav bar above hits a different
-                route defined in <code>index.js</code>.
+                <strong>routing</strong> and
+                <strong>query string handling</strong>
+                in Express.
             </p>
+
         </section>
 
+
+        <!-- SEARCH -->
         <section class="card">
+
             <h2>Search the Movie Catalog</h2>
+
             <p>
-                Enter a genre below (try <em>Sci-Fi</em>, <em>Tragedy</em>,
-                <em>Crime</em>, or <em>Romance</em>) to see how a GET request
-                with a query string is handled on the server.
+                Enter a genre below
+                (try <em>Sci-Fi</em>, <em>Tragedy</em>,
+                <em>Crime</em>, or <em>Romance</em>)
+                to see how a GET request with a query string
+                is handled on the server.
             </p>
+
             <form action="/search" method="GET" class="search-form">
-                <input type="text" id="genre" name="genre" >
-                <input type="submit" value="Search">
+
+                <input
+                    type="text"
+                    id="genre"
+                    name="genre"
+                    placeholder="Enter genre"
+                >
+
+                <input
+                    type="submit"
+                    value="Search"
+                >
+
             </form>
+
         </section>
+
+
+        <!-- PUT -->
+        <section class="card">
+
+            <h2>Update a Movie — PUT</h2>
+
+            <p>
+                Enter a movie ID and new information.
+                This sends a <strong>PUT</strong> request to
+                <code>/movie/:id</code>.
+            </p>
+
+            <form id="update-form">
+
+                <label for="update-id">
+                    Movie ID
+                </label>
+
+                <input
+                    type="number"
+                    id="update-id"
+                    placeholder="Example: 1"
+                    required
+                >
+
+
+                <label for="update-title">
+                    New Title
+                </label>
+
+                <input
+                    type="text"
+                    id="update-title"
+                    placeholder="New movie title"
+                    required
+                >
+
+
+                <label for="update-genre">
+                    New Genre
+                </label>
+
+                <input
+                    type="text"
+                    id="update-genre"
+                    placeholder="New genre"
+                    required
+                >
+
+
+                <input
+                    type="submit"
+                    value="Update Movie"
+                >
+
+            </form>
+
+            <p id="update-result"></p>
+
+        </section>
+
+
+        <!-- DELETE -->
+        <section class="card">
+
+            <h2>Delete a Movie — DELETE</h2>
+
+            <p>
+                Enter a movie ID to delete it from the
+                movie list. This sends a
+                <strong>DELETE</strong> request to
+                <code>/movie/:id</code>.
+            </p>
+
+            <form id="delete-form">
+
+                <label for="delete-id">
+                    Movie ID
+                </label>
+
+                <input
+                    type="number"
+                    id="delete-id"
+                    placeholder="Example: 1"
+                    required
+                >
+
+                <input
+                    type="submit"
+                    value="Delete Movie"
+                >
+
+            </form>
+
+            <p id="delete-result"></p>
+
+        </section>
+
     </main>
 
+
     <footer class="site-footer">
-        <p>Built for learning Express &amp; Node routing.</p>
+
+        <p>
+            Built for learning Express &amp; Node routing.
+        </p>
+
     </footer>
+
+
+    <script>
+
+        // ------------------------
+        // PUT request
+        // ------------------------
+
+        const updateForm = document.getElementById("update-form")
+
+        updateForm.addEventListener("submit", async (event) => {
+
+            event.preventDefault()
+
+            const id = document.getElementById("update-id").value
+            const title = document.getElementById("update-title").value
+            const genre = document.getElementById("update-genre").value
+
+            const response = await fetch(`/movie/${id}`, {
+
+                method: "PUT",
+
+                headers: {
+                    "Content-Type": "application/json"
+                },
+
+                body: JSON.stringify({
+                    title: title,
+                    genre: genre
+                })
+
+            })
+
+            const data = await response.json()
+
+            document.getElementById("update-result").innerHTML =
+                data.message
+
+            console.log(data)
+
+        })
+
+
+        // ------------------------
+        // DELETE request
+        // ------------------------
+
+        const deleteForm = document.getElementById("delete-form")
+
+        deleteForm.addEventListener("submit", async (event) => {
+
+            event.preventDefault()
+
+            const id = document.getElementById("delete-id").value
+
+            const response = await fetch(`/movie/${id}`, {
+
+                method: "DELETE"
+
+            })
+
+            const data = await response.json()
+
+            document.getElementById("delete-result").innerHTML =
+                data.message
+
+            console.log(data)
+
+        })
+
+    </script>
+
 </body>
+
 </html>
